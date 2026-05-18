@@ -1,0 +1,15 @@
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure.csproj.AssemblyReference.cache
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\MainWindow.g.cs
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\App.g.cs
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure_MarkupCompile.cache
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure_MarkupCompile.lref
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\bin\Debug\DataStructure.exe.config
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\bin\Debug\DataStructure.exe
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\bin\Debug\DataStructure.pdb
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\MainWindow.baml
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure.g.resources
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure.Properties.Resources.resources
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure.csproj.GenerateResource.cache
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure.csproj.CoreCompileInputs.cache
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure.exe
+C:\Users\25-001s\Documents\Data Structure\DataStructure\DataStructure\obj\Debug\DataStructure.pdb
