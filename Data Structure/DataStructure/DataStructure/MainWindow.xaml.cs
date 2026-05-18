@@ -21,33 +21,47 @@ namespace DataStructure
     /// </summary>
     public partial class MainWindow : Window
     {
+        // AVAILABLE ITEMS
         ObservableCollection<Shopping> shopping =
             new ObservableCollection<Shopping>();
 
-         ObservableCollection<Shopping> shoppings =
+        // SHOPPING CART
+        ObservableCollection<Shopping> shoppings =
             new ObservableCollection<Shopping>();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // Available items grid
             ShoppingGrid.ItemsSource = shopping;
+
+            // Cart grid
+            AddtoCart.ItemsSource = shoppings;
         }
 
-
+        // REMOVE ITEM
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
             Shopping selectedShopping = ShoppingGrid.SelectedItem as Shopping;
+
             if (selectedShopping != null)
             {
                 shopping.Remove(selectedShopping);
+
                 ShoppingGrid.Items.Refresh();
-                MessageBox.Show("Student Removed Successfully!");
+
+                MessageBox.Show("Item Removed Successfully!");
+
                 ClearFields();
             }
             else
             {
-                MessageBox.Show("Please select a student first.");
+                MessageBox.Show("Please select an item first.");
             }
         }
+
+        // GRID SELECTION
         private void ShoppingGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -58,8 +72,6 @@ namespace DataStructure
                     txtName.Text = selectedShopping.Name;
                     txtDescription.Text = selectedShopping.Description;
                     txtPrice.Text = selectedShopping.Price;
-
-
                 }
             }
             catch (Exception ex)
@@ -68,28 +80,22 @@ namespace DataStructure
             }
         }
 
-
-        
+        // SHOPPING CLASS
         public class Shopping
         {
             public string Id { get; set; }
             public string Name { get; set; }
             public string Description { get; set; }
             public string Price { get; set; }
-
-
         }
-       
 
-
+        // ADD ITEM
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-
                 if (string.IsNullOrWhiteSpace(txtId.Text) ||
                     string.IsNullOrWhiteSpace(txtName.Text) ||
-
                     string.IsNullOrWhiteSpace(txtDescription.Text) ||
                     string.IsNullOrWhiteSpace(txtPrice.Text))
                 {
@@ -104,7 +110,6 @@ namespace DataStructure
                 {
                     Id = txtId.Text.Trim(),
                     Name = txtName.Text.Trim(),
-
                     Description = txtDescription.Text.Trim(),
                     Price = txtPrice.Text.Trim()
                 });
@@ -125,7 +130,6 @@ namespace DataStructure
             }
         }
 
-
         // CLEAR METHOD
         private void ClearFields()
         {
@@ -137,11 +141,13 @@ namespace DataStructure
             ShoppingGrid.SelectedItem = null;
         }
 
+        // CLEAR BUTTON
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 ClearFields();
+
                 MessageBox.Show("Fields Cleared!");
             }
             catch (Exception ex)
@@ -150,22 +156,40 @@ namespace DataStructure
             }
         }
 
+        // ADD TO CART
         private void btnaddtoCart_Click(object sender, RoutedEventArgs e)
         {
-            Shopping selectedShopping = AddtoCart.SelectedItem as Shopping;
-            if (selectedShopping != null)
+            try
             {
-                shopping.Add(selectedShopping);
-                AddtoCart.Items.Refresh();
-                
-                
+                // GET SELECTED ITEM FROM AVAILABLE ITEMS GRID
+                Shopping selectedShopping =
+                    ShoppingGrid.SelectedItem as Shopping;
+
+                if (selectedShopping != null)
+                {
+                    // ADD ITEM TO CART COLLECTION
+                    shoppings.Add(new Shopping
+                    {
+                        Id = selectedShopping.Id,
+                        Name = selectedShopping.Name,
+                        Description = selectedShopping.Description,
+                        Price = selectedShopping.Price
+                    });
+
+                    // REFRESH CART GRID
+                    AddtoCart.Items.Refresh();
+
+                    MessageBox.Show("Item Added To Cart!");
+                }
+                else
+                {
+                    MessageBox.Show("Please select an item first.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select a  first.");
+                MessageBox.Show("Error Adding To Cart!\n" + ex.Message);
             }
         }
-
-        
     }
 }
